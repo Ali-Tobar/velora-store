@@ -1,3 +1,4 @@
+/* Keep the store name and basket on opposite sides of the header. */
 .headerContainer {
  padding: 20px;
  display: flex;

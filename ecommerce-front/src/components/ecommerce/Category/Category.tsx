@@ -6,6 +6,7 @@ const { category, categoryImg, categoryTitle, categoryLink } = styles;
 
 
 const Category = ({ title, img, prefix }: TCategory) => {
+  // Open the products page for this category when clicked.
   return (
     <Link className={categoryLink} to={`/products/${prefix}`}>
       <div className={category}>

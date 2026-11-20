@@ -1,5 +1,5 @@
 
-
+// This is the store's home page.
 const Home = () => {
   return (
     <div>Home</div>

@@ -7,6 +7,7 @@ const { container, wrapper } = styles;
 const MainLayout = () => {
   return (
     <Container className={container}>
+      {/* Keep the header and footer around every page. */}
       <Header />
       <div className={wrapper}>
         <Outlet />

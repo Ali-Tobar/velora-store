@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import categoriesReducer from "@store/categories/categoriesSlice";
 import productsReducer from "@store/products/productsSlice";
 
+// Combine the store sections used by the app.
 const store = configureStore({
   reducer: {
     categories: categoriesReducer,

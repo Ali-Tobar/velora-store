@@ -1,3 +1,4 @@
+/* Make the page fill the screen and keep the footer at the bottom. */
 .container {
   height: 100vh;
   display: flex;

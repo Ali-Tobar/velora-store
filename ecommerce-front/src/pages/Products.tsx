@@ -5,52 +5,37 @@ import {
   actGetProductsByCatPrefix,
   productsCleanUp,
 } from "@store/products/productsSlice";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { Product } from "@components/ecommerce";
-
+import { GridList } from "@components/common";
+import { Loading } from "@components/feedback";
 const Products = () => {
   const { prefix } = useParams();
   const dispatch = useAppDispatch();
   const { loading, error, records } = useAppSelector((state) => state.products);
 
   useEffect(() => {
+    // Fetch products when the category in the URL changes.
     if (!prefix) return;
 
     dispatch(actGetProductsByCatPrefix(prefix));
 
     return () => {
+      // Clear products so they do not stay on the next page.
       dispatch(productsCleanUp());
     };
   }, [dispatch, prefix]);
 
-  const productsList =
-    loading === "idle" || loading === "pending" ? (
-      <Col xs={12} className="text-center">
-        Loading products...
-      </Col>
-    ) : error ? (
-      <Col xs={12} className="text-center">
-        {error}
-      </Col>
-    ) : records.length > 0 ? (
-      records.map((record) => (
-        <Col
-          xs={3}
-          key={record.id}
-          className="d-flex justify-content-center mb-5 mt-2"
-        >
-          <Product {...record} />
-        </Col>
-      ))
-    ) : (
-      <Col xs={12} className="text-center">
-        There are no products
-      </Col>
-    );
-
   return (
     <Container>
-      <Row>{productsList}</Row>
+      <Loading error={error} status={loading}>
+        <GridList
+          records={records}
+          keyExtractor={(record) => record.id}
+          renderItem={(record) => <Product {...record} />}
+          emptyMessage="There are no products"
+        />
+      </Loading>
     </Container>
   );
 };

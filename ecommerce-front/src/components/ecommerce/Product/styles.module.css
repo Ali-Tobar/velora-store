@@ -1,3 +1,4 @@
+/* Keep product details in a vertical card layout. */
 .product {
   width: 120px;
   display: flex;

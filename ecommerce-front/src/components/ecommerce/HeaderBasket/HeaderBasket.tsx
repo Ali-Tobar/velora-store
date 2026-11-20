@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 const { basketContainer, basketQuantity } = styles;
 
 const HeaderBasket = () => {
+  // Show the basket icon and the current item count.
   return (
     <div className={basketContainer}>
       <Logo title="basket icon" />

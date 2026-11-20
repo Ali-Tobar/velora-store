@@ -27,6 +27,7 @@ const router = createBrowserRouter([
       {
         path: "products/:prefix",
         element: <Products />,
+        // Only allow letter-only category prefixes in the URL.
         loader: ({ params }) => {
           if (
             typeof params.prefix !== "string" ||
@@ -57,6 +58,7 @@ const router = createBrowserRouter([
 ]);
 
 const AppRouter = () => {
+  // Show the page that matches the current URL.
   return <RouterProvider router={router} />;
 };
 

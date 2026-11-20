@@ -7,6 +7,7 @@ const { headerContainer, headerLogo } = styles;
 const Header = () => {
   return (
     <header>
+      {/* Show the store name and basket above the navigation links. */}
       <div className={headerContainer}>
         <h1 className={headerLogo}>
           <span>Our</span> <Badge bg="info">Ecom</Badge>

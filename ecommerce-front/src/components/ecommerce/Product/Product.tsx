@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 const { product, productImg } = styles;
 
 const Product = ({ title, price, img }: TProduct) => {
+  // Show the product details and its add-to-cart button.
   return (
     <div className={product}>
       <div className={productImg}>
