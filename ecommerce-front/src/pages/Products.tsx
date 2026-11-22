@@ -7,13 +7,18 @@ import {
 } from "@store/products/productsSlice";
 import { Container } from "react-bootstrap";
 import { Product } from "@components/ecommerce";
-import { GridList } from "@components/common";
+import { GridList,Heading } from "@components/common";
 import { Loading } from "@components/feedback";
 const Products = () => {
   const { prefix } = useParams();
   const dispatch = useAppDispatch();
   const { loading, error, records } = useAppSelector((state) => state.products);
+  const cartItem = useAppSelector((state) => state.cart.items);
 
+  const productFullInfo = records.map((el) => ({
+    ...el,
+    quantity: cartItem[el.id] || 0,
+  }));
   useEffect(() => {
     // Fetch products when the category in the URL changes.
     if (!prefix) return;
@@ -28,9 +33,10 @@ const Products = () => {
 
   return (
     <Container>
+      <Heading><span>{prefix}</span> Products</Heading>
       <Loading error={error} status={loading}>
         <GridList
-          records={records}
+          records={productFullInfo}
           keyExtractor={(record) => record.id}
           renderItem={(record) => <Product {...record} />}
           emptyMessage="There are no products"

@@ -1,19 +1,56 @@
 /* Place the item count over the basket icon. */
 .basketContainer {
-  position: relative;
-  cursor: pointer;
   align-self: flex-end;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
-
+.basketContainer h3 {
+  font-size: 17px;
+  margin-left: 6px;
+  margin-bottom: 0;
+}
 .basketQuantity {
   background-color: #0dcaf0;
   height: 22px;
   width: 22px;
-  border-radius: 10px;
-  text-align: center;
-  border: 1px solid;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  top: -16px;
-  right: -5px;
+  top: -8px;
+  right: -8px;
   font-size: 12px;
+  font-weight: 600;
+}
+.basketCart {
+  position: relative;
+}
+
+.pumpCartQuantity {
+  animation: pumping 300ms cubic-bezier(0.2, 0.8, 0.3, 1);
+  transform-origin: center;
+}
+
+@keyframes pumping {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.35);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pumpCartQuantity {
+    animation: none;
+  }
 }

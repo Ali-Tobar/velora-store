@@ -4,16 +4,13 @@ import type { TCategory } from "@customTypes/category";
 
 type TResponse = TCategory[];
 
-
 const actGetCategories = createAsyncThunk(
   "categories/actGetCategories",
   async (_, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
       // Load the category list from the local API.
-      const response = await axios.get<TResponse>(
-        "http://localhost:5005/categories"
-      );
+      const response = await axios.get<TResponse>("/categories");
       return response.data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -22,7 +19,7 @@ const actGetCategories = createAsyncThunk(
         return rejectWithValue("An unexpected error");
       }
     }
-  }
+  },
 );
 
 export default actGetCategories;

@@ -12,14 +12,15 @@ const actGetProductsByCatPrefix = createAsyncThunk<
   try {
     // Load products that belong to the selected category.
     const response = await axios.get<TResponse>(
-      `http://localhost:5005/products?cat_prefix=${prefix}`,
+      `/products?cat_prefix=${prefix}`,
     );
     return response.data;
   } catch (error) {
-    if (axios.isAxiosError(error)) {      // Type Guards
-      return rejectWithValue(error.response?.data.message || error.message);     // axios Error
+    if (axios.isAxiosError(error)) {
+      // Type Guards
+      return rejectWithValue(error.response?.data.message || error.message); // axios Error
     } else {
-      return rejectWithValue("An unexpected error");  //  Exception 
+      return rejectWithValue("An unexpected error"); //  Exception
     }
   }
 });
