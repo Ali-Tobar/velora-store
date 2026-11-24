@@ -1,16 +1,35 @@
-/* Keep product details in a vertical card layout. */
+/* ==========================================================================
+   Product Card Styles
+   ========================================================================== */
+
 .product {
-  width: 120px;
+  width: 100%;
+  max-width: 260px;
+  background-color: var(--velora-surface);
+  border: 1px solid var(--velora-border);
+  border-radius: var(--velora-radius-lg);
+  padding: 16px;
+  box-shadow: var(--velora-shadow-xs);
+  transition: var(--velora-transition);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+.product:hover {
+  transform: translateY(-4px);
+  border-color: var(--velora-border-hover);
+  box-shadow: var(--velora-shadow-md);
+}
+
 .productImg {
   width: 100%;
-  height: 180px;
-  background-color: #f2f2f2;
+  height: 220px;
+  border-radius: var(--velora-radius-md);
   overflow: hidden;
+  background-color: var(--velora-surface-subtle);
+  margin-bottom: 14px;
+  position: relative;
 }
 
 .productImg img {
@@ -18,22 +37,70 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product:hover .productImg img {
+  transform: scale(1.05);
 }
 
 .product h2 {
-  font-size: 17px;
-  margin-top: 9px;
-  margin-bottom: 12px;
-  width: 100%;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--velora-text-main);
+  margin: 0 0 6px 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  letter-spacing: -0.01em;
 }
 
 .product h3 {
-  font-size: 13px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--velora-dark);
+  margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
 }
+
 .maximumNotice {
-  font-size: 12px;
-  margin-bottom: 7px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--velora-text-muted);
+  margin-bottom: 12px;
+  min-height: 18px;
+  line-height: 1.3;
+}
+
+/* Add to Cart Button */
+.addToCartBtn {
+  background-color: var(--velora-dark) !important;
+  border: 1px solid var(--velora-dark) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  padding: 9px 16px !important;
+  border-radius: var(--velora-radius-md) !important;
+  width: 100%;
+  transition: var(--velora-transition) !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: var(--velora-shadow-xs);
+}
+
+.addToCartBtn:hover:not(:disabled) {
+  background-color: var(--velora-accent) !important;
+  border-color: var(--velora-accent) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(194, 65, 12, 0.25);
+}
+
+.addToCartBtn:disabled {
+  background-color: var(--velora-border) !important;
+  border-color: var(--velora-border) !important;
+  color: var(--velora-text-light) !important;
+  cursor: not-allowed;
+  opacity: 0.8;
 }

@@ -1,8 +1,25 @@
-/* Push the footer content to the bottom of the page layout. */
+/* ==========================================================================
+   Velora Footer Styles
+   ========================================================================== */
+
 .footerContainer {
   margin-top: auto;
+  padding: 30px 0 24px;
+  border-top: 1px solid var(--velora-border);
+  background-color: var(--velora-surface);
+  color: var(--velora-text-muted);
+}
+
+.footerContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 10px 0;
-  /* background-color: #f7f7fa; */
-  border-top: 1px solid black;
+}
+
+.copyright {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--velora-text-muted);
 }

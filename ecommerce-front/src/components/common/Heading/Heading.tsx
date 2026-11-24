@@ -1,9 +1,8 @@
+import type { ReactNode } from "react";
+import styles from "./styles.module.css";
 
+const Heading = ({ children }: { children: ReactNode }) => {
+  return <h2 className={styles.heading}>{children}</h2>;
+};
 
-const Heading = ({children}: {children: React.ReactNode}) => {
-  return (
-    <div className="mb-3" style={{fontSize: "26px"}}>{children}</div>
-  )
-}
-
-export default Heading
+export default Heading;

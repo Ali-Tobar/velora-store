@@ -1,11 +1,12 @@
 import { memo, useEffect, useState } from "react";
-
 import { Button, Spinner } from "react-bootstrap";
 import type { TProduct } from "@customTypes/product";
 import styles from "./styles.module.css";
-const { product, productImg, maximumNotice } = styles;
 import { useAppDispatch } from "@store/hooks";
 import { addToCart } from "@store/cart/cartSlice";
+
+const { product, productImg, maximumNotice, addToCartBtn } = styles;
+
 // Avoid rendering this product again when its props have not changed.
 const Product = memo(({ id, title, price, img, max, quantity }: TProduct) => {
   const dispatch = useAppDispatch();
@@ -32,6 +33,7 @@ const Product = memo(({ id, title, price, img, max, quantity }: TProduct) => {
     dispatch(addToCart(id));
     setIsBtnDisabled(true);
   };
+
   // Show the product details and its add-to-cart button.
   return (
     <div className={product}>
@@ -42,22 +44,21 @@ const Product = memo(({ id, title, price, img, max, quantity }: TProduct) => {
       <h3>{price.toFixed(2)} EGP</h3>
       <p className={maximumNotice}>
         {quantityReachedToMax
-          ? "You reach to the limit"
-          : `You can add ${currentRemainingQuantity} item(s)`}
+          ? "Maximum limit reached"
+          : `You can add ${currentRemainingQuantity} more`}
       </p>
       <Button
-        variant="info"
-        style={{ color: "white" }}
+        className={addToCartBtn}
         onClick={handleAddToCart}
         disabled={isBtnDisabled || quantityReachedToMax}
       >
         {isBtnDisabled ? (
           <>
             <Spinner animation="border" size="sm" />
-            Loading...
+            Adding...
           </>
         ) : (
-          " Add to cart"
+          "Add to cart"
         )}
       </Button>
     </div>

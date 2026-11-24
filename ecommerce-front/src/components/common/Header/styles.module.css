@@ -1,22 +1,196 @@
-/* Keep the store name and basket on opposite sides of the header. */
-.headerContainer {
- padding: 20px;
- display: flex;
- justify-content: space-between;
- align-items: center;
-}
-.headerLogo{
-  color: inherit;
-  text-decoration: inherit;
-  font-size: 2.3rem;
-  margin: 0px;
-}
-.headerLogo h1{
-  margin: 0;
-  display: flex;
+/* ==========================================================================
+   Velora Header Styles (Single-Row Modern Sticky Header)
+   ========================================================================== */
 
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--velora-border);
+  transition: var(--velora-transition);
 }
-.headerLogo h1 span{
-  display: block;
-  margin-right: 5px;
+
+.navbar {
+  padding: 12px 0 !important;
+  background: transparent !important;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Logo */
+.brandLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--velora-dark) !important;
+  font-weight: 800;
+  font-size: 1.45rem;
+  letter-spacing: -0.03em;
+  padding: 0 !important;
+  margin-right: 1.5rem;
+  transition: var(--velora-transition);
+}
+
+.brandLink:hover {
+  opacity: 0.9;
+  transform: scale(1.01);
+}
+
+.brandLogoBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--velora-shadow-xs);
+}
+
+.brandName {
+  display: inline-flex;
+  align-items: center;
+  color: var(--velora-dark);
+}
+
+.brandDot {
+  color: var(--velora-accent);
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+/* Main Navigation Links (Center) */
+.mainNav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto 0 0;
+}
+
+.navLink {
+  color: var(--velora-text-secondary) !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 8px 16px !important;
+  border-radius: var(--velora-radius-full);
+  text-decoration: none;
+  transition: var(--velora-transition);
+  position: relative;
+}
+
+.navLink:hover {
+  color: var(--velora-text-main) !important;
+  background-color: var(--velora-surface-subtle);
+}
+
+/* Active Link Styling */
+.navLink:global(.active) {
+  color: var(--velora-dark) !important;
+  font-weight: 700;
+  background-color: var(--velora-surface-subtle);
+}
+
+/* Right Navigation Group (Auth + Basket) */
+.rightNavGroup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.authNav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.authLink {
+  color: var(--velora-text-secondary) !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 7px 14px !important;
+  border-radius: var(--velora-radius-md);
+  transition: var(--velora-transition);
+}
+
+.authLink:hover {
+  color: var(--velora-dark) !important;
+  background-color: var(--velora-surface-subtle);
+}
+
+.registerLink {
+  color: var(--velora-dark) !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 7px 16px !important;
+  border-radius: var(--velora-radius-full);
+  border: 1px solid var(--velora-border) !important;
+  background-color: #ffffff;
+  box-shadow: var(--velora-shadow-xs);
+  transition: var(--velora-transition);
+}
+
+.registerLink:hover {
+  border-color: var(--velora-dark) !important;
+  background-color: var(--velora-surface-subtle);
+  transform: translateY(-1px);
+}
+
+.basketWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.navToggle {
+  border: 1px solid var(--velora-border) !important;
+  padding: 6px 10px !important;
+  border-radius: var(--velora-radius-md) !important;
+}
+
+.navToggle:focus {
+  box-shadow: none !important;
+  border-color: var(--velora-dark) !important;
+}
+
+@media (max-width: 991.98px) {
+  .navCollapse {
+    padding-top: 16px;
+    padding-bottom: 12px;
+    border-top: 1px solid var(--velora-border-light);
+    margin-top: 12px;
+  }
+
+  .mainNav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+
+  .navLink {
+    width: 100%;
+    padding: 10px 14px !important;
+  }
+
+  .rightNavGroup {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    padding-top: 12px;
+    border-top: 1px solid var(--velora-border-light);
+  }
+
+  .authNav {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .registerLink {
+    text-align: center;
+  }
 }

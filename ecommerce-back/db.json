@@ -4,97 +4,233 @@
       "id": 1,
       "title": "men",
       "prefix": "men",
-      "img": "https://images.pexels.com/photos/1707828/pexels-photo-1707828.jpeg?auto=compress&cs=tinysrgb&w=1200"
+      "img": "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": 2,
       "title": "women",
       "prefix": "women",
-      "img": "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=1200"
+      "img": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": 3,
       "title": "kids",
       "prefix": "kids",
-      "img": "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=1200"
+      "img": "https://images.unsplash.com/photo-1519457431-44ccd64a579b?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": 4,
       "title": "baby",
       "prefix": "baby",
-      "img": "https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=1200"
+      "img": "https://images.unsplash.com/photo-1522771930-78848d9293e8?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": 5,
       "title": "sport",
       "prefix": "sport",
-      "img": "https://images.pexels.com/photos/1630344/pexels-photo-1630344.jpeg?auto=compress&cs=tinysrgb&w=1200"
+      "img": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80"
     }
   ],
   "products": [
     {
       "id": 1,
-      "title": "Regular Fit Jersey top",
-      "price": 249.00,
+      "title": "Tailored Linen Blazer",
+      "price": 899,
       "cat_prefix": "men",
-      "img": "https://images.pexels.com/photos/1040424/pexels-photo-1040424.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "max": 4
+      "img": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+      "max": 5
     },
     {
       "id": 2,
-      "title": "Regular Fit Jersey top",
-      "price": 229.00,
+      "title": "Slim Fit Oxford Shirt",
+      "price": 420,
       "cat_prefix": "men",
-      "img": "https://images.pexels.com/photos/1707828/pexels-photo-1707828.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "max": 4
+      "img": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80",
+      "max": 6
     },
     {
       "id": 3,
-      "title": "Cotton polo shirt",
-      "price": 200.00,
+      "title": "Merino Wool Crewneck",
+      "price": 650,
       "cat_prefix": "men",
-      "img": "https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "max": 3
+      "img": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80",
+      "max": 4
     },
     {
       "id": 4,
-      "title": "Cotton t-shirt",
-      "price": 100.00,
-      "cat_prefix": "women",
-      "img": "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=1200",
-       "max": 2
+      "title": "Classic Chino Trousers",
+      "price": 490,
+      "cat_prefix": "men",
+      "img": "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80",
+      "max": 6
     },
     {
       "id": 5,
-      "title": "Sweatshirt shorts",
-      "price": 300.00,
-      "cat_prefix": "women",
-      "img": "https://images.pexels.com/photos/3760854/pexels-photo-3760854.jpeg?auto=compress&cs=tinysrgb&w=1200",
-       "max": 3
+      "title": "Oversized Heavyweight Tee",
+      "price": 280,
+      "cat_prefix": "men",
+      "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80",
+      "max": 8
     },
     {
       "id": 6,
-      "title": "Velour top",
-      "price": 300.00,
-      "cat_prefix": "kids",
-      "img": "https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "max": 2
+      "title": "Ribbed Knit Midi Dress",
+      "price": 750,
+      "cat_prefix": "women",
+      "img": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80",
+      "max": 5
+    },
+    {
+      "id": 7,
+      "title": "Oversized Trench Coat",
+      "price": 1250,
+      "cat_prefix": "women",
+      "img": "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80",
+      "max": 3
+    },
+    {
+      "id": 8,
+      "title": "Silk Satin Blouse",
+      "price": 580,
+      "cat_prefix": "women",
+      "img": "https://images.unsplash.com/photo-1564257631407-4deb1f99d992?auto=format&fit=crop&w=800&q=80",
+      "max": 5
     },
     {
       "id": 9,
-      "title": "Pile all-in-one suit with ears",
-      "price": 500.00,
+      "title": "Wide-Leg Pleated Trousers",
+      "price": 620,
+      "cat_prefix": "women",
+      "img": "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80",
+      "max": 6
+    },
+    {
+      "id": 10,
+      "title": "Cropped Denim Jacket",
+      "price": 690,
+      "cat_prefix": "women",
+      "img": "https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=800&q=80",
+      "max": 4
+    },
+    {
+      "id": 11,
+      "title": "Colorblock Cotton Hoodie",
+      "price": 350,
+      "cat_prefix": "kids",
+      "img": "https://images.unsplash.com/photo-1519457431-44ccd64a579b?auto=format&fit=crop&w=800&q=80",
+      "max": 6
+    },
+    {
+      "id": 12,
+      "title": "Denim Dungarees Overalls",
+      "price": 420,
+      "cat_prefix": "kids",
+      "img": "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=800&q=80",
+      "max": 5
+    },
+    {
+      "id": 13,
+      "title": "Striped Organic Cotton Tee",
+      "price": 220,
+      "cat_prefix": "kids",
+      "img": "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?auto=format&fit=crop&w=800&q=80",
+      "max": 7
+    },
+    {
+      "id": 14,
+      "title": "Warm Quilted Puffer Vest",
+      "price": 480,
+      "cat_prefix": "kids",
+      "img": "https://images.unsplash.com/photo-1543332164-6e82f355badc?auto=format&fit=crop&w=800&q=80",
+      "max": 4
+    },
+    {
+      "id": 15,
+      "title": "Fleece Casual Joggers",
+      "price": 290,
+      "cat_prefix": "kids",
+      "img": "https://images.unsplash.com/photo-1514090458221-65bb69cf63e6?auto=format&fit=crop&w=800&q=80",
+      "max": 6
+    },
+    {
+      "id": 16,
+      "title": "Knitted Romper with Ears",
+      "price": 360,
       "cat_prefix": "baby",
-      "img": "https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "max": 2
+      "img": "https://images.unsplash.com/photo-1522771930-78848d9293e8?auto=format&fit=crop&w=800&q=80",
+      "max": 5
     },
     {
       "id": 17,
-      "title": "Regular Fit football shirt",
-      "price": 449.00,
+      "title": "Organic Cotton Bodysuit Pack",
+      "price": 290,
+      "cat_prefix": "baby",
+      "img": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=800&q=80",
+      "max": 8
+    },
+    {
+      "id": 18,
+      "title": "Soft Fleece Footed Sleeper",
+      "price": 340,
+      "cat_prefix": "baby",
+      "img": "https://images.unsplash.com/photo-1505377059067-e285a7bac49b?auto=format&fit=crop&w=800&q=80",
+      "max": 6
+    },
+    {
+      "id": 19,
+      "title": "Pastel Wool Cardigan",
+      "price": 380,
+      "cat_prefix": "baby",
+      "img": "https://images.unsplash.com/photo-1520072959219-c595dc870360?auto=format&fit=crop&w=800&q=80",
+      "max": 4
+    },
+    {
+      "id": 20,
+      "title": "Comfort Stretch Bib & Overalls",
+      "price": 310,
+      "cat_prefix": "baby",
+      "img": "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80",
+      "max": 7
+    },
+    {
+      "id": 21,
+      "title": "Seamless Athletic Performance Tee",
+      "price": 380,
       "cat_prefix": "sport",
-      "img": "https://images.pexels.com/photos/1630344/pexels-photo-1630344.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "max": 2
+      "img": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80",
+      "max": 6
+    },
+    {
+      "id": 22,
+      "title": "High-Waist Compression Leggings",
+      "price": 520,
+      "cat_prefix": "sport",
+      "img": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80",
+      "max": 5
+    },
+    {
+      "id": 23,
+      "title": "Lightweight Running Windbreaker",
+      "price": 740,
+      "cat_prefix": "sport",
+      "img": "https://images.unsplash.com/photo-1483721074573-56781361ee94?auto=format&fit=crop&w=800&q=80",
+      "max": 4
+    },
+    {
+      "id": 24,
+      "title": "Pro Training Sweatshirt",
+      "price": 590,
+      "cat_prefix": "sport",
+      "img": "https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&w=800&q=80",
+      "max": 6
+    },
+    {
+      "id": 25,
+      "title": "Flex Dry-Fit Workout Shorts",
+      "price": 340,
+      "cat_prefix": "sport",
+      "img": "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=800&q=80",
+      "max": 7
     }
   ]
 }

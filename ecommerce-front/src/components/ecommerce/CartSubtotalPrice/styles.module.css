@@ -1,10 +1,31 @@
+/* ==========================================================================
+   CartSubtotalPrice Component Styles
+   ========================================================================== */
+
 .container {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 60px;
+  align-items: center;
+  padding: 20px 24px;
+  background-color: var(--velora-surface);
+  border: 1px solid var(--velora-border);
+  border-radius: var(--velora-radius-lg);
+  margin-top: 20px;
+  margin-bottom: 50px;
+  box-shadow: var(--velora-shadow-xs);
 }
-.container span {
+
+.container span:first-child {
   display: block;
-  font-size: 17px;
-  font-weight: bold;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--velora-text-secondary);
+}
+
+.container span:last-child {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--velora-dark);
+  letter-spacing: -0.02em;
 }

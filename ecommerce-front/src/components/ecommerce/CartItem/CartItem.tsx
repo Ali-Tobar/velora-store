@@ -2,7 +2,8 @@ import { Form, Button } from "react-bootstrap";
 import styles from "./styles.module.css";
 import type { TProduct } from "@customTypes/product";
 import { memo } from "react";
-const { cartItem, product, productImg, productInfo, cartItemSelection } =
+
+const { cartItem, product, productImg, productInfo, cartItemSelection, removeBtn } =
   styles;
 
 type CartItemProps = TProduct & {
@@ -37,6 +38,7 @@ const CartItem = memo(
       const quantity = +event.target.value;
       changeQuantityHandler(id, quantity);
     };
+
     return (
       <div className={cartItem}>
         <div className={product}>
@@ -47,9 +49,7 @@ const CartItem = memo(
             <h2>{title}</h2>
             <h3>{price.toFixed(2)} EGP</h3>
             <Button
-              variant="secondary"
-              style={{ color: "white", width: "100px" }}
-              className="mt-auto"
+              className={`${removeBtn} mt-auto`}
               onClick={() => removeItemHandler(id)}
             >
               Remove

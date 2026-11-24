@@ -1,9 +1,14 @@
-/* Make the page fill the screen and keep the footer at the bottom. */
+/* ==========================================================================
+   MainLayout Styles
+   ========================================================================== */
+
 .container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
+
 .wrapper {
-  margin-top: 30px;
+  flex: 1;
+  padding: 32px 0 60px;
 }

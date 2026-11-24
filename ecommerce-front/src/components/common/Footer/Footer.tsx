@@ -1,10 +1,13 @@
 import styles from "./styles.module.css";
-const { footerContainer } = styles;
+const { footerContainer, footerContent, copyright } = styles;
 
 const Footer = () => {
-  // Show the copyright text at the bottom of the layout.
   return (
-    <footer className={footerContainer}>© 2026 Our Ecom. All rights reserved.</footer>
+    <footer className={footerContainer}>
+      <div className={footerContent}>
+        <p className={copyright}>© 2026 Velora. All rights reserved.</p>
+      </div>
+    </footer>
   );
 };
 
