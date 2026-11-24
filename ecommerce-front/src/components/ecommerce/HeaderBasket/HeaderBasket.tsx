@@ -2,12 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import { useAppSelector } from "@store/hooks";
 import { getCartTotalQuantitySelector } from "@store/cart/selectors";
 import Logo from "@assets/svg/cart.svg?react";
-
+import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 const { basketContainer, basketQuantity, pumpCartQuantity, basketCart } =
   styles;
 
 const HeaderBasket = () => {
+  const navigate = useNavigate();
   const [isAnimate, setIsAnimate] = useState(false);
   const isFirstRender = useRef(true);
   const totalQuantity = useAppSelector(getCartTotalQuantitySelector);
@@ -35,10 +36,15 @@ const HeaderBasket = () => {
       clearTimeout(debounce);
     };
   }, [totalQuantity]);
+ 
+  // Go to the cart page.
+  const handleRedirect = () => {
+    navigate("/Cart");
+  };
 
   // Show the basket icon and the current item count.
   return (
-    <div className={basketContainer}>
+    <div className={basketContainer} onClick={handleRedirect}>
       <div className={basketCart}>
         <Logo title="basket icon" />
         <div className={quantityStyle}>{totalQuantity}</div>
