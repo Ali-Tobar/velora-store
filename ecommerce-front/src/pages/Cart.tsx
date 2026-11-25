@@ -13,15 +13,19 @@ const Cart = () => {
   const { items, productsFullInfo, loading, error } = useAppSelector(
     (state) => state.cart,
   );
+
+  // Load the product details for the items that are currently in the cart.
   useEffect(() => {
     dispatch(actGetProductsByItems());
   }, [dispatch]);
 
+  // Add the selected quantity to each product before showing it on the page.
   const products = productsFullInfo.map((el) => ({
     ...el,
     quantity: items[el.id],
   }));
 
+  // Update the quantity in the cart when the user changes it.
   const changeQuantityHandler = useCallback(
     (id: number, quantity: number) => {
       dispatch(cartItemChangeQuantity({ id, quantity }));
@@ -29,6 +33,7 @@ const Cart = () => {
     [dispatch],
   );
 
+  // Remove a product and update the cart state.
   const removeItemHandler = useCallback(
     (id: number) => {
       dispatch(cartItemRemove(id));

@@ -13,7 +13,7 @@ import storage from "redux-persist/es/storage";
 import categoriesReducer from "@store/categories/categoriesSlice";
 import productsReducer from "@store/products/productsSlice";
 import cartReducer from "./cart/cartSlice";
-
+import wishlistReducer from "./wishlist/wishlistSlice";
 // Save only the cart items between visits.
 const cartPersistConfig = {
   key: "cart",
@@ -21,11 +21,18 @@ const cartPersistConfig = {
   whitelist: ["items"],
 };
 
+const wishlistPersistConfig = {
+  key: "wishlist",
+  storage,
+  whitelist: ["itemsId"],
+};
+
 // Keep each part of the app under its own store key.
 const rootReducer = combineReducers({
   categories: categoriesReducer,
   products: productsReducer,
   cart: persistReducer(cartPersistConfig, cartReducer),
+  wishlist: persistReducer(wishlistPersistConfig, wishlistReducer),
 });
 
 // Combine the store sections used by the app.

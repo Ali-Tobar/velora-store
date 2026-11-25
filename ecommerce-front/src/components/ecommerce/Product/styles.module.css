@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 
 .product:hover {
@@ -103,4 +104,42 @@
   color: var(--velora-text-light) !important;
   cursor: not-allowed;
   opacity: 0.8;
+}
+
+/* wishList */
+.wishlistBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--velora-border);
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #ed4d5e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--velora-shadow-xs);
+  transition: var(--velora-transition);
+  z-index: 1;
+}
+
+.wishlistBtn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.wishlistBtn:hover {
+  background-color: #fff;
+  border-color: rgba(237, 77, 94, 0.5);
+  transform: scale(1.06);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.wishlistBtn:focus-visible {
+  outline: 3px solid rgba(237, 77, 94, 0.25);
+  outline-offset: 2px;
 }

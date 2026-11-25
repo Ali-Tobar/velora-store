@@ -4,39 +4,36 @@ import { getCartTotalQuantitySelector } from "@store/cart/selectors";
 import Logo from "@assets/svg/cart.svg?react";
 import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
-const { basketContainer, basketQuantity, pumpCartQuantity, basketCart } =
-  styles;
+const { container, totalNum, pumpAnimate, iconWrapper } = styles;
 
 const HeaderBasket = () => {
   const navigate = useNavigate();
   const [isAnimate, setIsAnimate] = useState(false);
+  // Remember the first render so saved items do not animate on page load.
   const isFirstRender = useRef(true);
   const totalQuantity = useAppSelector(getCartTotalQuantitySelector);
-  const quantityStyle = `${basketQuantity} ${isAnimate ? pumpCartQuantity : ""}`;
+  const quantityStyle = `${totalNum} ${isAnimate ? pumpAnimate : ""}`;
 
-  // Animate the count when its value changes.
+  // Animate the cart count when it changes.
   useEffect(() => {
-    // Skip the animation when the saved cart first appears after refresh.
     if (isFirstRender.current) {
       isFirstRender.current = false;
       return;
     }
 
-    if (!totalQuantity) {
-      return;
-    }
+    if (!totalQuantity) return;
+
     // Start the animation on the next browser frame.
     const animationFrame = requestAnimationFrame(() => setIsAnimate(true));
-    // Remove the animation class after 300 milliseconds.
-    const debounce = setTimeout(() => setIsAnimate(false), 300);
+    const timeout = setTimeout(() => setIsAnimate(false), 300);
 
-    // Cancel pending work if the quantity changes again or the component unmounts.
     return () => {
+      // Cancel the scheduled update if the quantity changes or the component unmounts.
       cancelAnimationFrame(animationFrame);
-      clearTimeout(debounce);
+      clearTimeout(timeout);
     };
   }, [totalQuantity]);
- 
+
   // Go to the cart page.
   const handleRedirect = () => {
     navigate("/Cart");
@@ -44,10 +41,12 @@ const HeaderBasket = () => {
 
   // Show the basket icon and the current item count.
   return (
-    <div className={basketContainer} onClick={handleRedirect}>
-      <div className={basketCart}>
+    <div className={container} onClick={handleRedirect}>
+      <div className={iconWrapper}>
         <Logo title="basket icon" />
-        <div className={quantityStyle}>{totalQuantity}</div>
+        {totalQuantity > 0 && (
+          <div className={quantityStyle}>{totalQuantity}</div>
+        )}
       </div>
       <h3>Cart</h3>
     </div>

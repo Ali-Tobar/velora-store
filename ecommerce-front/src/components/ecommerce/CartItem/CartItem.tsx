@@ -22,7 +22,7 @@ const CartItem = memo(
     changeQuantityHandler,
     removeItemHandler,
   }: CartItemProps) => {
-    // render option list
+    // Create quantity options based on the maximum available amount.
     const renderOptions = Array(max)
       .fill(0)
       .map((_, idx) => {
@@ -34,6 +34,7 @@ const CartItem = memo(
         );
       });
 
+    // Convert the selected value to a number and update it in the cart.
     const changeQuantity = (event: React.ChangeEvent<HTMLSelectElement>) => {
       const quantity = +event.target.value;
       changeQuantityHandler(id, quantity);

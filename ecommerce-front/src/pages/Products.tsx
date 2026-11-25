@@ -14,10 +14,11 @@ const Products = () => {
   const dispatch = useAppDispatch();
   const { loading, error, records } = useAppSelector((state) => state.products);
   const cartItem = useAppSelector((state) => state.cart.items);
-
+  const wishlistItemsId = useAppSelector((state)=> state.wishlist.itemsId)
   const productFullInfo = records.map((el) => ({
     ...el,
     quantity: cartItem[el.id] || 0,
+    isLiked: wishlistItemsId.includes(el.id)
   }));
   useEffect(() => {
     // Fetch products when the category in the URL changes.

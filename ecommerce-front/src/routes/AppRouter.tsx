@@ -10,6 +10,7 @@ import Login from "@pages/Login";
 import Register from "@pages/Register";
 import Error from "@pages/Error";
 import Cart from "@pages/Cart";
+import Wishlist from "@pages/wishlist";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "categories",
         element: <Categories />,
+      },
+      {
+        path: "/wishlist",
+        element: <Wishlist />,
       },
       {
         path: "products/:prefix",

@@ -12,6 +12,7 @@ const CartItemList = ({
   changeQuantityHandler,
   removeItemHandler,
 }: CartItemListProps) => {
+  // Create a CartItem for each product and pass the available actions.
   const renderList = products.map((el) => (
     <CartItem
       key={el.id}

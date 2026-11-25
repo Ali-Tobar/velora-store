@@ -1,4 +1,4 @@
-import { HeaderBasket } from "@components/ecommerce";
+import { HeaderBasket, HeaderWishlist } from "@components/ecommerce";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import styles from "./styles.module.css";
@@ -29,9 +29,7 @@ const Header = () => {
                 />
               </svg>
             </span>
-            <span className={styles.brandName}>
-              Velora<span className={styles.brandDot}>.</span>
-            </span>
+            <span className={styles.brandName}>Velora</span>
           </Navbar.Brand>
 
           <Navbar.Toggle
@@ -69,6 +67,7 @@ const Header = () => {
               </Nav>
 
               <div className={styles.basketWrapper}>
+                <HeaderWishlist />
                 <HeaderBasket />
               </div>
             </div>

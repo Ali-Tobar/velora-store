@@ -1,8 +1,8 @@
-/* ==========================================================================
+/* 
    HeaderBasket Component Styles (Refined Minimal Pill)
-   ========================================================================== */
+ */
 
-.basketContainer {
+.container {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -16,14 +16,14 @@
   user-select: none;
 }
 
-.basketContainer:hover {
+.container:hover {
   border-color: var(--velora-dark);
   background-color: var(--velora-surface-subtle);
   transform: translateY(-1px);
   box-shadow: var(--velora-shadow-sm);
 }
 
-.basketContainer h3 {
+.container h3 {
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--velora-text-main);
@@ -31,7 +31,7 @@
   line-height: 1;
 }
 
-.basketCart {
+.iconWrapper {
   position: relative;
   display: flex;
   align-items: center;
@@ -39,14 +39,14 @@
   color: var(--velora-dark);
 }
 
-.basketCart svg {
+.iconWrapper svg {
   width: 18px;
   height: 18px;
   fill: currentColor;
 }
 
 /* Badge with Velora Warm Terracotta Accent */
-.basketQuantity {
+.totalNum {
   background-color: var(--velora-accent);
   color: #ffffff;
   height: 18px;
@@ -66,7 +66,7 @@
   line-height: 1;
 }
 
-.pumpCartQuantity {
+.pumpAnimate {
   animation: pumping 300ms cubic-bezier(0.2, 0.8, 0.3, 1);
   transform-origin: center;
 }

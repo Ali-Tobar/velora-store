@@ -6,4 +6,13 @@ import Product from "./Product/Product";
 import CartItem from "./CartItem/CartItem";
 import CartSubtotalPrice from "./CartSubtotalPrice/CartSubtotalPrice";
 import CartItemList from "./CartItemList/CartItemList";
-export { HeaderBasket, Product, Category, CartItem,CartSubtotalPrice , CartItemList};
+import HeaderWishlist from "./HeaderWishlist/HeaderWishlist";
+export {
+  HeaderBasket,
+  Product,
+  Category,
+  CartItem,
+  CartSubtotalPrice,
+  CartItemList,
+  HeaderWishlist,
+};
