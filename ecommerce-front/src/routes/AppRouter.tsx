@@ -1,38 +1,69 @@
+import { lazy } from "react";
+import { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // layouts
-import MainLayout from "@layouts/MainLayout/MainLayout";
-// pages
-import Home from "@pages/Home";
-import Categories from "@pages/Categories";
-import Products from "@pages/Products";
-import AboutUs from "@pages/AboutUs";
-import Login from "@pages/Login";
-import Register from "@pages/Register";
+// import MainLayout from "@layouts/MainLayout/MainLayout";
+const MainLayout = lazy(() => import("@layouts/MainLayout/MainLayout"));
+// pages and lazy loading
+const Home = lazy(() => import("@pages/Home"));
+const Categories = lazy(() => import("@pages/Categories"));
+const Products = lazy(() => import("@pages/Products"));
+const AboutUs = lazy(() => import("@pages/AboutUs"));
+const Login = lazy(() => import("@pages/Login"));
+const Register = lazy(() => import("@pages/Register"));
+const Cart = lazy(() => import("@pages/Cart"));
+const Wishlist = lazy(() => import("@pages/Wishlist"));
+//page Error
 import Error from "@pages/Error";
-import Cart from "@pages/Cart";
-import Wishlist from "@pages/wishlist";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout />,
+    element: (
+      <Suspense fallback="Loading please wait...">
+        <MainLayout />
+      </Suspense>
+    ),
     errorElement: <Error />,
     children: [
       {
         index: true,
-        element: <Home />,
+        element: (
+          <Suspense fallback="Loading please wait...">
+            <Home />
+          </Suspense>
+        ),
       },
-      { path: "/Cart", element: <Cart /> },
+      {
+        path: "/Cart",
+        element: (
+          <Suspense fallback="Loading please wait...">
+            <Cart />
+          </Suspense>
+        ),
+      },
       {
         path: "categories",
-        element: <Categories />,
+        element: (
+          <Suspense fallback="Loading please wait...">
+            <Categories />
+          </Suspense>
+        ),
       },
       {
         path: "/wishlist",
-        element: <Wishlist />,
+        element: (
+          <Suspense fallback="Loading please wait...">
+            <Wishlist />
+          </Suspense>
+        ),
       },
       {
         path: "products/:prefix",
-        element: <Products />,
+        element: (
+          <Suspense fallback="Loading please wait...">
+            <Products />
+          </Suspense>
+        ),
         // Only allow letter-only category prefixes in the URL.
         loader: ({ params }) => {
           if (
@@ -49,15 +80,27 @@ const router = createBrowserRouter([
       },
       {
         path: "about-us",
-        element: <AboutUs />,
+        element: (
+          <Suspense fallback="Loading please wait...">
+            <AboutUs />
+          </Suspense>
+        ),
       },
       {
         path: "login",
-        element: <Login />,
+        element: (
+          <Suspense fallback="Loading please wait...">
+            <Login />
+          </Suspense>
+        ),
       },
       {
         path: "register",
-        element: <Register />,
+        element: (
+          <Suspense fallback="Loading please wait...">
+            <Register />
+          </Suspense>
+        ),
       },
     ],
   },

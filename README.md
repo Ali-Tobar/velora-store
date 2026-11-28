@@ -1,6 +1,7 @@
 
 ```
 velora-store
+├─ docs
 ├─ ecommerce-back
 │  ├─ db.json
 │  ├─ package-lock.json
@@ -17,7 +18,10 @@ velora-store
 │  ├─ src
 │  │  ├─ assets
 │  │  │  └─ svg
-│  │  │     └─ cart.svg
+│  │  │     ├─ cart.svg
+│  │  │     ├─ like-fill.svg
+│  │  │     ├─ like.svg
+│  │  │     └─ wishlist.svg
 │  │  ├─ components
 │  │  │  ├─ common
 │  │  │  │  ├─ Footer
@@ -27,17 +31,29 @@ velora-store
 │  │  │  │  │  └─ GridList.tsx
 │  │  │  │  ├─ Header
 │  │  │  │  │  ├─ Header.tsx
+│  │  │  │  │  ├─ HeaderCounter
+│  │  │  │  │  │  ├─ HeaderCounter.tsx
+│  │  │  │  │  │  └─ styles.module.css
+│  │  │  │  │  ├─ HeaderLeftBar
+│  │  │  │  │  │  ├─ HeaderLeftBar.tsx
+│  │  │  │  │  │  └─ styles.module.css
 │  │  │  │  │  ├─ index.ts
 │  │  │  │  │  └─ styles.module.css
 │  │  │  │  ├─ Heading
-│  │  │  │  │  └─ Heading.tsx
+│  │  │  │  │  ├─ Heading.tsx
+│  │  │  │  │  └─ styles.module.css
 │  │  │  │  └─ index.ts
 │  │  │  ├─ ecommerce
+│  │  │  │  ├─ CartItem
+│  │  │  │  │  ├─ CartItem.tsx
+│  │  │  │  │  └─ styles.module.css
+│  │  │  │  ├─ CartItemList
+│  │  │  │  │  └─ CartItemList.tsx
+│  │  │  │  ├─ CartSubtotalPrice
+│  │  │  │  │  ├─ CartSubtotalPrice.tsx
+│  │  │  │  │  └─ styles.module.css
 │  │  │  │  ├─ Category
 │  │  │  │  │  ├─ Category.tsx
-│  │  │  │  │  └─ styles.module.css
-│  │  │  │  ├─ HeaderBasket
-│  │  │  │  │  ├─ HeaderBasket.tsx
 │  │  │  │  │  └─ styles.module.css
 │  │  │  │  ├─ index.ts
 │  │  │  │  └─ Product
@@ -58,18 +74,23 @@ velora-store
 │  │  ├─ main.tsx
 │  │  ├─ pages
 │  │  │  ├─ AboutUs.tsx
+│  │  │  ├─ Cart.tsx
 │  │  │  ├─ Categories.tsx
 │  │  │  ├─ Error.tsx
+│  │  │  ├─ Home.module.css
 │  │  │  ├─ Home.tsx
 │  │  │  ├─ Login.tsx
 │  │  │  ├─ Products.tsx
-│  │  │  └─ Register.tsx
+│  │  │  ├─ Register.tsx
+│  │  │  └─ Wishlist.tsx
 │  │  ├─ routes
 │  │  │  └─ AppRouter.tsx
 │  │  ├─ services
-│  │  │  └─ axios-global.js
+│  │  │  └─ axios-global.ts
 │  │  ├─ store
 │  │  │  ├─ cart
+│  │  │  │  ├─ act
+│  │  │  │  │  └─ actGetProductsByItems.ts
 │  │  │  │  ├─ cartSlice.ts
 │  │  │  │  └─ selectors
 │  │  │  │     └─ index.ts
@@ -79,10 +100,15 @@ velora-store
 │  │  │  │  └─ categoriesSlice.ts
 │  │  │  ├─ hooks.ts
 │  │  │  ├─ index.ts
-│  │  │  └─ products
+│  │  │  ├─ products
+│  │  │  │  ├─ act
+│  │  │  │  │  └─ actGetProductsByCatPrefix.ts
+│  │  │  │  └─ productsSlice.ts
+│  │  │  └─ wishlist
 │  │  │     ├─ act
-│  │  │     │  └─ actGetProductsByCatPrefix.ts
-│  │  │     └─ productsSlice.ts
+│  │  │     │  ├─ actGetWishlist.ts
+│  │  │     │  └─ actLikeToggle.ts
+│  │  │     └─ wishlistSlice.ts
 │  │  ├─ styles
 │  │  │  └─ global.css
 │  │  ├─ types

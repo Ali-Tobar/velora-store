@@ -1,4 +1,5 @@
-import type { TProduct } from "@customTypes/product";
+import type { TLoading, TProduct } from "@customTypes/index";
+import { isString } from "@customTypes/index";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import actGetProductsByItems from "./act/actGetProductsByItems";
@@ -6,10 +7,9 @@ import {
   getCartTotalQuantitySelector,
   itemQuantityAvailabilityCheckingSelector,
 } from "./selectors";
-import type { TLoading } from "@customTypes/shared";
 interface ICartState {
   // Store each product ID with its quantity.
-  items: { [key: string]: number };
+  items: { [key: string]: number }; //  Index Signature  and  Normalized State
   // Keep the full details of the products in the cart.
   productsFullInfo: TProduct[];
   loading: TLoading;
@@ -48,6 +48,9 @@ const cartSlice = createSlice({
         (el) => el.id !== action.payload,
       );
     },
+    cleanCartProductsFullInfo: (state) => {
+      state.productsFullInfo = [];
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(actGetProductsByItems.pending, (state) => {
@@ -60,7 +63,7 @@ const cartSlice = createSlice({
     });
     builder.addCase(actGetProductsByItems.rejected, (state, action) => {
       state.loading = "failed";
-      if (action.payload && typeof action.payload === "string") {
+      if (isString(action.payload)) {
         state.error = action.payload;
       }
     });
@@ -72,6 +75,10 @@ export {
   itemQuantityAvailabilityCheckingSelector,
   actGetProductsByItems,
 };
-export const { addToCart, cartItemChangeQuantity, cartItemRemove } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  cartItemChangeQuantity,
+  cartItemRemove,
+  cleanCartProductsFullInfo,
+} = cartSlice.actions;
 export default cartSlice.reducer;

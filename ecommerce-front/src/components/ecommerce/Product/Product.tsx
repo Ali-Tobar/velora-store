@@ -1,6 +1,6 @@
 import { memo, useEffect, useState } from "react";
 import { Button, Spinner } from "react-bootstrap";
-import type { TProduct } from "@customTypes/product";
+import type { TProduct } from "@customTypes/product.types";
 import styles from "./styles.module.css";
 import { useAppDispatch } from "@store/hooks";
 import { addToCart } from "@store/cart/cartSlice";
@@ -11,92 +11,98 @@ const { product, productImg, maximumNotice, addToCartBtn, wishlistBtn } =
   styles;
 
 // Avoid rendering this product again when its props have not changed.
-const Product = memo(
-  ({ id, title, price, img, max, quantity, isLiked }: TProduct) => {
-    const dispatch = useAppDispatch();
-    const [isBtnDisabled, setIsBtnDisabled] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    // Show how many more items can be added.
-    const currentRemainingQuantity = max - (quantity ?? 0);
-    const quantityReachedToMax = currentRemainingQuantity <= 0 ? true : false;
+const Product = ({
+  id,
+  title,
+  price,
+  img,
+  max,
+  quantity,
+  isLiked,
+}: TProduct) => {
+  const dispatch = useAppDispatch();
+  const [isBtnDisabled, setIsBtnDisabled] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); //Local State
+  // Show how many more items can be added.
+  const currentRemainingQuantity = max - (quantity ?? 0);
+  const quantityReachedToMax = currentRemainingQuantity <= 0 ? true : false;
 
-    // Enable the button again shortly after an item is added.
-    useEffect(() => {
-      if (!isBtnDisabled) {
-        return;
-      }
+  // Enable the button again shortly after an item is added.
+  useEffect(() => {
+    if (!isBtnDisabled) {
+      return;
+    }
 
-      const debounce = setTimeout(() => {
-        setIsBtnDisabled(false);
-      }, 300);
-      return () => clearTimeout(debounce);
-    }, [isBtnDisabled]);
+    const debounce = setTimeout(() => {
+      setIsBtnDisabled(false);
+    }, 300);
+    return () => clearTimeout(debounce);
+  }, [isBtnDisabled]);
 
-    // Add this product to the cart and briefly disable the button.
-    const handleAddToCart = () => {
-      dispatch(addToCart(id));
-      setIsBtnDisabled(true);
-    };
+  // Add this product to the cart and briefly disable the button.
+  const handleAddToCart = () => {
+    dispatch(addToCart(id));
+    setIsBtnDisabled(true);
+  };
 
-    const likeToggleHandler = () => {
-      if (isLoading) return;
-      setIsLoading(true);
-      
-      // Unwrap the thunk result and stop the spinner after a successful toggle.
-      dispatch(actLikeToggle(id))
-        .unwrap()
-        .then(() => setIsLoading(false))
-        .catch(() => setIsLoading(false));
-    };
-    // Show the product details and its add-to-cart button.
-    return (
-      <div className={product}>
-        <div className={productImg}>
-          <img src={img} alt={title} />
-          <button
-            type="button"
-            className={wishlistBtn}
-            aria-label={
-              isLiked
-                ? `Remove ${title} from wishlist`
-                : `Add ${title} to wishlist`
-            }
-            onClick={likeToggleHandler}
-            disabled={isLoading}
-          >
-            {isLoading ? (
-              <Spinner animation="border" size="sm" variant="primary" />
-            ) : isLiked ? (
-              <LikeFill />
-            ) : (
-              <Like />
-            )}
-          </button>
-        </div>
-        <h2>{title}</h2>
-        <h3>{price.toFixed(2)} EGP</h3>
-        <p className={maximumNotice}>
-          {quantityReachedToMax
-            ? "Maximum limit reached"
-            : `You can add ${currentRemainingQuantity} more`}
-        </p>
-        <Button
-          className={addToCartBtn}
-          onClick={handleAddToCart}
-          disabled={isBtnDisabled || quantityReachedToMax}
+  const likeToggleHandler = () => {
+    if (isLoading) return;
+    setIsLoading(true);
+
+    // Unwrap the thunk result and stop the spinner after a successful toggle.
+    dispatch(actLikeToggle(id))
+      .unwrap()
+      .then(() => setIsLoading(false))
+      .catch(() => setIsLoading(false));
+  };
+  // Show the product details and its add-to-cart button.
+  return (
+    <div className={product}>
+      <div className={productImg}>
+        <img src={img} alt={title} />
+        <button
+          type="button"
+          className={wishlistBtn}
+          aria-label={
+            isLiked
+              ? `Remove ${title} from wishlist`
+              : `Add ${title} to wishlist`
+          }
+          onClick={likeToggleHandler}
+          disabled={isLoading}
         >
-          {isBtnDisabled ? (
-            <>
-              <Spinner animation="border" size="sm" />
-              Adding...
-            </>
+          {isLoading ? (
+            <Spinner animation="border" size="sm" variant="primary" />
+          ) : isLiked ? (
+            <LikeFill />
           ) : (
-            "Add to cart"
+            <Like />
           )}
-        </Button>
+        </button>
       </div>
-    );
-  },
-);
+      <h2>{title}</h2>
+      <h3>{price.toFixed(2)} EGP</h3>
+      <p className={maximumNotice}>
+        {quantityReachedToMax
+          ? "Maximum limit reached"
+          : `You can add ${currentRemainingQuantity} more`}
+      </p>
+      <Button
+        className={addToCartBtn}
+        onClick={handleAddToCart}
+        disabled={isBtnDisabled || quantityReachedToMax}
+      >
+        {isBtnDisabled ? (
+          <>
+            <Spinner animation="border" size="sm" />
+            Adding...
+          </>
+        ) : (
+          "Add to cart"
+        )}
+      </Button>
+    </div>
+  );
+};
 
-export default Product;
+export default memo(Product);

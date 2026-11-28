@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { TProduct } from "@customTypes/product";
-import type { TLoading } from "@customTypes/shared";
+import type { TLoading, TProduct } from "@customTypes/index";
+import { isString } from "@customTypes/index";
 import actLikeToggle from "./act/actLikeToggle";
 import actGetWishlist from "./act/actGetWishlist";
 interface IWishlistState {
@@ -20,7 +20,7 @@ const wishlistSlice = createSlice({
   name: "wishlist",
   initialState,
   reducers: {
-    productsFullInfoCleanUp: (state) => {
+    cleanWishlistProductsFullInfo: (state) => {
       state.productsFullInfo = [];
     },
   },
@@ -41,7 +41,7 @@ const wishlistSlice = createSlice({
 
     // Save the error only when the thunk returned a readable message.
     builder.addCase(actLikeToggle.rejected, (state, action) => {
-      if (action.payload && typeof action.payload === "string") {
+      if (isString(action.payload)) {
         state.error = action.payload;
       }
     });
@@ -59,13 +59,13 @@ const wishlistSlice = createSlice({
     // Save the error only when the thunk returned a readable message.
     builder.addCase(actGetWishlist.rejected, (state, action) => {
       state.loading = "failed";
-      if (action.payload && typeof action.payload === "string") {
+      if (isString(action.payload)) {
         state.error = action.payload;
       }
     });
   },
 });
 
-export const { productsFullInfoCleanUp } = wishlistSlice.actions;
+export const { cleanWishlistProductsFullInfo } = wishlistSlice.actions;
 export { actLikeToggle, actGetWishlist };
 export default wishlistSlice.reducer;

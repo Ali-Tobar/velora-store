@@ -1,6 +1,6 @@
-import { HeaderBasket, HeaderWishlist } from "@components/ecommerce";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import HeaderLeftBar from "./HeaderLeftBar/HeaderLeftBar";
 import styles from "./styles.module.css";
 
 const Header = () => {
@@ -66,10 +66,7 @@ const Header = () => {
                 </Nav.Link>
               </Nav>
 
-              <div className={styles.basketWrapper}>
-                <HeaderWishlist />
-                <HeaderBasket />
-              </div>
+              <HeaderLeftBar />
             </div>
           </Navbar.Collapse>
         </Container>

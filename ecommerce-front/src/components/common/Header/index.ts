@@ -1,3 +1,2 @@
-import HeaderBasket from "../../ecommerce/HeaderBasket/HeaderBasket";
 
-export { HeaderBasket };
+export { default } from "./Header";

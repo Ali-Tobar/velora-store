@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import actGetProductsByCatPrefix from "./act/actGetProductsByCatPrefix";
-import type { TProduct } from "@customTypes/product";
-import type { TLoading } from "@customTypes/shared";
+import type { TLoading, TProduct } from "@customTypes/index";
+import { isString } from "@customTypes/index";
 
 interface IProductsState {
   // Products returned for the selected category.
@@ -24,7 +24,7 @@ const productsSlice = createSlice({
   initialState,
   reducers: {
     // Remove old products when leaving the products page.
-    productsCleanUp: (state) => {
+    cleanUpProductsRecords: (state) => {
       state.records = [];
     },
   },
@@ -42,13 +42,13 @@ const productsSlice = createSlice({
     // Save the error when the request fails.
     builder.addCase(actGetProductsByCatPrefix.rejected, (state, action) => {
       state.loading = "failed";
-      if (action.payload && typeof action.payload === "string") {
+      if (isString(action.payload)) {
         state.error = action.payload;
       }
     });
   },
 });
 
-export const { productsCleanUp } = productsSlice.actions;
+export const { cleanUpProductsRecords } = productsSlice.actions;
 export { actGetProductsByCatPrefix };
 export default productsSlice.reducer;
